@@ -1,0 +1,6 @@
+int d0 = 0;
+int d1 = 495;
+int b1 = 0b111101111;
+int o1 = 0757;
+int h1 = 0x1EF;
+int big = 1234567890;

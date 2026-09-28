@@ -1,0 +1,7 @@
+char a = 'a';
+char q = '¿';
+char n = '\n';
+char t = '\t';
+char r = '\r';
+char s = '\'';
+char b = '\\';

@@ -1,0 +1,5 @@
+float f1 = 100.001;
+float f2 = 9.87e-2;
+float f3 = 5e5;
+float f4 = 3.1e+2;
+float f5 = 10.0;

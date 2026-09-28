@@ -1,0 +1,87 @@
+[
+  {
+    "id": "test_01",
+    "file": "test_01_ok.lava",
+    "type": "ok",
+    "description": "Caso mínimo con declaraciones int y float, asignaciones simples y punto y coma."
+  },
+  {
+    "id": "test_02",
+    "file": "test_02_ok.lava",
+    "type": "ok",
+    "description": "Diferenciación entre palabras reservadas y identificadores similares (int vs int1, while vs while1, etc.)."
+  },
+  {
+    "id": "test_03",
+    "file": "test_03_ok.lava",
+    "type": "ok",
+    "description": "Operadores compuestos y lógicos: ==, >=, <=, >, <, &&, || y operador unario !."
+  },
+  {
+    "id": "test_04",
+    "file": "test_04_ok.lava",
+    "type": "ok",
+    "description": "Uso de record, new, acceso mediante punto (.), separadores y tokens pegados sin espacios."
+  },
+  {
+    "id": "test_05",
+    "file": "test_05_ok.lava",
+    "type": "ok",
+    "description": "Literales enteros en distintas bases: decimal, binario (0b), octal (0) y hexadecimal (0x)."
+  },
+  {
+    "id": "test_06",
+    "file": "test_06_ok.lava",
+    "type": "ok",
+    "description": "Literales en coma flotante con punto decimal y notación científica."
+  },
+  {
+    "id": "test_07",
+    "file": "test_07_ok.lava",
+    "type": "ok",
+    "description": "Literales de tipo char con caracteres normales y secuencias de escape (\\n, \\t, \\\\, etc.)."
+  },
+  {
+    "id": "test_08",
+    "file": "test_08_ok.lava",
+    "type": "ok",
+    "description": "Comentarios de una línea (//) y multilínea (/* */), incluyendo símbolos internos que no deben tokenizarse."
+  },
+  {
+    "id": "test_09",
+    "file": "test_09_ok.lava",
+    "type": "ok",
+    "description": "Estructuras de control: while, if, else y uso de break."
+  },
+  {
+    "id": "test_10",
+    "file": "test_10_ok.lava",
+    "type": "ok",
+    "description": "Casos combinados con registros, expresiones complejas y acceso encadenado con punto."
+  },
+  {
+    "id": "test_11",
+    "file": "test_11_error.lava",
+    "type": "error",
+    "description": "Carácter ilegal (@). Verifica que se detecta el error léxico y el análisis continúa."
+  },
+  {
+    "id": "test_12",
+    "file": "test_12_error.lava",
+    "type": "error",
+    "description": "Literal entero no válido (09). Se tokeniza como 0 y 9, dejando la validación a fases posteriores."
+  },
+  {
+    "id": "test_13",
+    "file": "test_13_error.lava",
+    "type": "error",
+    "description": "Comentario multilínea sin cierre. El lexer entra en estado comment y consume hasta EOF."
+  }
+  ,
+  {
+    "id": "test_14",
+    "file": "test_14_ok.lava",
+    "type": "ok",
+    "description": "Caso añadido: declaración simple para test_14_ok."
+  }
+]

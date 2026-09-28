@@ -1,0 +1,2 @@
+boolean active = true;
+boolean done = false;

@@ -1,0 +1,4 @@
+record Pair(int x,int y);
+Pair p=new Pair(1,2);
+p.x= p.x+1;
+p.y=p.y-1;

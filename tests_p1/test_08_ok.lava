@@ -1,0 +1,9 @@
+int a = 1; // comentario final de línea
+
+/* comentario
+multi
+linea */
+int b = 2;
+
+/* comentario con símbolos raros {} () == && // dentro */
+while (a < b) { a = a + 1; }
