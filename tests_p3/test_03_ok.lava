@@ -1,0 +1,7 @@
+int dec = 495;
+int bin = 0b1111;
+int oct = 0757;
+int hex = 0x1EF;
+float f1 = 100.001;
+float f2 = 9.87e-2;
+float f3 = 5e5;

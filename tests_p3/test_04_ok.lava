@@ -1,0 +1,4 @@
+char c = 'A';
+int i = 1 + c;
+float f = 7.5 + c * 8;
+int n = -5 + +3 * 2;

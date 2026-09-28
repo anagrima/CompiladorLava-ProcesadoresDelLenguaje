@@ -1,0 +1,5 @@
+record Point(int x, int y);
+Point makePoint(int x, int y) {
+    return new Point(x, y);
+}
+Point p = makePoint(3, 4);

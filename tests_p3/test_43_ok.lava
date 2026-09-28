@@ -1,0 +1,5 @@
+int doble(int x) {
+    return x + x;
+}
+
+int a = doble(3);

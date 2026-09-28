@@ -1,0 +1,941 @@
+
+============================================================
+Ejecutando: tests_p3\test_01_ok.lava
+Contenido del test:
+;;
+;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_01_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_01_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_01_ok.records ---
+
+
+--- Contenido de: tests_p3\test_01_ok.symbols ---
+
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_02_ok.lava
+Contenido del test:
+int a = 28;
+float b = 24.9;
+char c = 'x';
+boolean d = true;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_02_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_02_ok.quartets ---
+ASSIGN,28,_,a
+ASSIGN,24.9,_,b
+ASSIGN,'x',_,c
+ASSIGN,true,_,d
+
+--- Contenido de: tests_p3\test_02_ok.records ---
+
+
+--- Contenido de: tests_p3\test_02_ok.symbols ---
+a:int,28
+b:float,24.9
+c:char,'x'
+d:boolean,true
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_03_ok.lava
+Contenido del test:
+int dec = 495;
+int bin = 0b1111;
+int oct = 0757;
+int hex = 0x1EF;
+float f1 = 100.001;
+float f2 = 9.87e-2;
+float f3 = 5e5;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_03_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_03_ok.quartets ---
+ASSIGN,495,_,dec
+ASSIGN,15,_,bin
+ASSIGN,495,_,oct
+ASSIGN,495,_,hex
+ASSIGN,100.001,_,f1
+ASSIGN,0.0987,_,f2
+ASSIGN,500000.0,_,f3
+
+--- Contenido de: tests_p3\test_03_ok.records ---
+
+
+--- Contenido de: tests_p3\test_03_ok.symbols ---
+dec:int,495
+bin:int,15
+oct:int,495
+hex:int,495
+f1:float,100.001
+f2:float,0.0987
+f3:float,500000.0
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_04_ok.lava
+Contenido del test:
+char c = 'A';
+int i = 1 + c;
+float f = 7.5 + c * 8;
+int n = -5 + +3 * 2;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_04_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_04_ok.quartets ---
+ASSIGN,'A',_,c
+CHAR_TO_INT,c,_,@T1
+ADD,1,@T1,@T2
+ASSIGN,@T2,_,i
+CHAR_TO_INT,c,_,@T3
+MUL,@T3,8,@T4
+INT_TO_FLOAT,@T4,_,@T5
+ADD,7.5,@T5,@T6
+ASSIGN,@T6,_,f
+UMINUS,5,_,@T7
+UPLUS,3,_,@T8
+MUL,@T8,2,@T9
+ADD,@T7,@T9,@T10
+ASSIGN,@T10,_,n
+
+--- Contenido de: tests_p3\test_04_ok.records ---
+
+
+--- Contenido de: tests_p3\test_04_ok.symbols ---
+c:char,'A'
+i:int,66
+f:float,527.5
+n:int,1
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_05_ok.lava
+Contenido del test:
+boolean a = true && false;
+boolean b = !false;
+boolean c = 5 < 8;
+boolean d = 'a' == 'a';
+boolean e = 10 >= 3 || false;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_05_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_05_ok.quartets ---
+AND,true,false,@T1
+ASSIGN,@T1,_,a
+NOT,false,_,@T2
+ASSIGN,@T2,_,b
+LT,5,8,@T3
+ASSIGN,@T3,_,c
+EQ,'a','a',@T4
+ASSIGN,@T4,_,d
+GTE,10,3,@T5
+OR,@T5,false,@T6
+ASSIGN,@T6,_,e
+
+--- Contenido de: tests_p3\test_05_ok.records ---
+
+
+--- Contenido de: tests_p3\test_05_ok.symbols ---
+a:boolean,false
+b:boolean,true
+c:boolean,true
+d:boolean,true
+e:boolean,true
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_06_ok.lava
+Contenido del test:
+int a = 3;
+if (a < 5) {
+    a = a + 1;
+} else {
+    a = a - 1;
+}
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_06_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_06_ok.quartets ---
+ASSIGN,3,_,a
+LT,a,5,@T1
+JUMPF,@T1,@L1,_
+ADD,a,1,@T2
+ASSIGN,@T2,_,a
+JUMP,@L2,_,_
+LABEL,@L1,_,_
+SUB,a,1,@T3
+ASSIGN,@T3,_,a
+LABEL,@L2,_,_
+
+--- Contenido de: tests_p3\test_06_ok.records ---
+
+
+--- Contenido de: tests_p3\test_06_ok.symbols ---
+a:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_07_ok.lava
+Contenido del test:
+int i = 0;
+while (i < 10) {
+    if (i == 4) {
+        break;
+    }
+    i = i + 1;
+}
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_07_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_07_ok.quartets ---
+ASSIGN,0,_,i
+LABEL,@L1,_,_
+LT,i,10,@T1
+JUMPF,@T1,@L2,_
+EQ,i,4,@T2
+JUMPF,@T2,@L3,_
+JUMP,@L2,_,_
+LABEL,@L3,_,_
+ADD,i,1,@T3
+ASSIGN,@T3,_,i
+JUMP,@L1,_,_
+LABEL,@L2,_,_
+
+--- Contenido de: tests_p3\test_07_ok.records ---
+
+
+--- Contenido de: tests_p3\test_07_ok.symbols ---
+i:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_08_ok.lava
+Contenido del test:
+int i = 0;
+do {
+    i = i + 1;
+    print(i);
+} while (i < 3);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_08_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_08_ok.quartets ---
+ASSIGN,0,_,i
+LABEL,@L1,_,_
+ADD,i,1,@T1
+ASSIGN,@T1,_,i
+PRINT,i,_,_
+LT,i,3,@T2
+JUMPT,@T2,@L1,_
+LABEL,@L2,_,_
+
+--- Contenido de: tests_p3\test_08_ok.records ---
+
+
+--- Contenido de: tests_p3\test_08_ok.symbols ---
+i:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_09_ok.lava
+Contenido del test:
+record Point(int x, int y);
+Point p;
+p.x = 10;
+p.y = 20;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_09_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_09_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_09_ok.records ---
+Point:[x:int,y:int]
+
+--- Contenido de: tests_p3\test_09_ok.symbols ---
+p:Point,{x:10,y:20}
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_10_ok.lava
+Contenido del test:
+record Point(int x, int y);
+record Line(Point a, Point b);
+Line l;
+l.a.x = 1;
+l.a.y = 2;
+l.b.x = 3;
+l.b.y = 4;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_10_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_10_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_10_ok.records ---
+Point:[x:int,y:int]
+Line:[a:Point,b:Point]
+
+--- Contenido de: tests_p3\test_10_ok.symbols ---
+l:Line,{a:{x:1,y:2},b:{x:3,y:4}}
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_11_ok.lava
+Contenido del test:
+record Price(float euro, float dollar);
+record Product(Price price, boolean active);
+Product p;
+p.price.euro = 10;
+p.price.dollar = 11;
+p.active = true;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_11_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_11_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_11_ok.records ---
+Price:[euro:float,dollar:float]
+Product:[price:Price,active:boolean]
+
+--- Contenido de: tests_p3\test_11_ok.symbols ---
+p:Product,{price:{euro:10.0,dollar:11.0},active:true}
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_12_ok.lava
+Contenido del test:
+int square(int x) {
+    return x * x;
+}
+int a = square(5);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_12_ok.functions ---
+square:[x:int],int
+
+--- Contenido de: tests_p3\test_12_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_12_ok.records ---
+
+
+--- Contenido de: tests_p3\test_12_ok.symbols ---
+a:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_13_ok.lava
+Contenido del test:
+void debugValue(int x) {
+    print(x);
+}
+int a = 3;
+debugValue(a);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_13_ok.functions ---
+debugValue:[x:int],void
+
+--- Contenido de: tests_p3\test_13_ok.quartets ---
+ASSIGN,3,_,a
+
+--- Contenido de: tests_p3\test_13_ok.records ---
+
+
+--- Contenido de: tests_p3\test_13_ok.symbols ---
+a:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_14_ok.lava
+Contenido del test:
+int square(int x) {
+    return x * x;
+}
+float square(float x) {
+    return x * x;
+}
+int a = square(4);
+float b = square(2.5);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_14_ok.functions ---
+square:[x:int],int
+square:[x:float],float
+
+--- Contenido de: tests_p3\test_14_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_14_ok.records ---
+
+
+--- Contenido de: tests_p3\test_14_ok.symbols ---
+a:int
+b:float
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_15_ok.lava
+Contenido del test:
+int code(int x) {
+    return x;
+}
+int a = code('A');
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_15_ok.functions ---
+code:[x:int],int
+
+--- Contenido de: tests_p3\test_15_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_15_ok.records ---
+
+
+--- Contenido de: tests_p3\test_15_ok.symbols ---
+a:int
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_16_ok.lava
+Contenido del test:
+record Point(int x, int y);
+Point makePoint(int x, int y) {
+    return new Point(x, y);
+}
+Point p = makePoint(3, 4);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_16_ok.functions ---
+makePoint:[x:int,y:int],Point
+
+--- Contenido de: tests_p3\test_16_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_16_ok.records ---
+Point:[x:int,y:int]
+
+--- Contenido de: tests_p3\test_16_ok.symbols ---
+p:Point
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_17_ok.lava
+Contenido del test:
+int a = 2;
+float b = 3.5;
+print(a);
+print(b);
+print(a + b);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_17_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_17_ok.quartets ---
+ASSIGN,2,_,a
+ASSIGN,3.5,_,b
+PRINT,a,_,_
+PRINT,b,_,_
+INT_TO_FLOAT,a,_,@T1
+ADD,@T1,b,@T2
+PRINT,@T2,_,_
+
+--- Contenido de: tests_p3\test_17_ok.records ---
+
+
+--- Contenido de: tests_p3\test_17_ok.symbols ---
+a:int,2
+b:float,3.5
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_18_ok.lava
+Contenido del test:
+int a = (2 + 3) * 4;
+boolean ok = (a > 10) && !(a == 0);
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_18_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_18_ok.quartets ---
+ADD,2,3,@T1
+MUL,@T1,4,@T2
+ASSIGN,@T2,_,a
+GT,a,10,@T3
+EQ,a,0,@T4
+NOT,@T4,_,@T5
+AND,@T3,@T5,@T6
+ASSIGN,@T6,_,ok
+
+--- Contenido de: tests_p3\test_18_ok.records ---
+
+
+--- Contenido de: tests_p3\test_18_ok.symbols ---
+a:int,20
+ok:boolean,true
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_19_ok.lava
+Contenido del test:
+int a = 7;
+float b;
+b = a;
+b = b + 0.5;
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_19_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_19_ok.quartets ---
+ASSIGN,7,_,a
+ASSIGN,0.0,_,b
+INT_TO_FLOAT,a,_,@T1
+ASSIGN,@T1,_,b
+ADD,b,0.5,@T2
+ASSIGN,@T2,_,b
+
+--- Contenido de: tests_p3\test_19_ok.records ---
+
+
+--- Contenido de: tests_p3\test_19_ok.symbols ---
+a:int,7
+b:float,7.5
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_20_ok.lava
+Contenido del test:
+int counter = 0;
+float result = 0.0;
+while (counter < 5) {
+    counter = counter + 1;
+    result = counter;
+    result = -result;
+    print(result);
+}
+
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_20_ok.functions ---
+
+
+--- Contenido de: tests_p3\test_20_ok.quartets ---
+ASSIGN,0,_,counter
+ASSIGN,0.0,_,result
+LABEL,@L1,_,_
+LT,counter,5,@T1
+JUMPF,@T1,@L2,_
+ADD,counter,1,@T2
+ASSIGN,@T2,_,counter
+INT_TO_FLOAT,counter,_,@T3
+ASSIGN,@T3,_,result
+UMINUS,result,_,@T4
+ASSIGN,@T4,_,result
+PRINT,result,_,_
+JUMP,@L1,_,_
+LABEL,@L2,_,_
+
+--- Contenido de: tests_p3\test_20_ok.records ---
+
+
+--- Contenido de: tests_p3\test_20_ok.symbols ---
+counter:int
+result:float
+
+Exit code: 0
+
+============================================================
+Ejecutando: tests_p3\test_21_error.lava
+Contenido del test:
+int a = 5
+float b = 2.0;
+
+============================================================
+Generating LALR tables
+[ERROR] Token 'FLOAT' inesperado en la línea 2
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_22_error.lava
+Contenido del test:
+float d, e = 0xFF / 0702;
+
+============================================================
+Generating LALR tables
+[ERROR] Token 'ASSIGN' inesperado en la línea 1
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_23_error.lava
+Contenido del test:
+a = 4;
+
+============================================================
+Generating LALR tables
+[ERROR] Variable 'a' no declarada
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_24_error.lava
+Contenido del test:
+int a;
+float a;
+
+============================================================
+Generating LALR tables
+[ERROR] Variable 'a' ya declarada
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_25_error.lava
+Contenido del test:
+int a;
+a = true;
+
+============================================================
+Generating LALR tables
+[ERROR] No se puede asignar 'boolean' a 'int'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_26_error.lava
+Contenido del test:
+int a = 3;
+if (a) {
+    a = 4;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] La condición del if debe ser boolean
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_27_error.lava
+Contenido del test:
+break;
+
+============================================================
+Generating LALR tables
+[ERROR] break fuera de un bucle
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_28_error.lava
+Contenido del test:
+return 3;
+
+============================================================
+Generating LALR tables
+[ERROR] return fuera de una función
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_29_error.lava
+Contenido del test:
+int f() {
+    return true;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] return incompatible: se esperaba 'int' y se obtuvo 'boolean'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_30_error.lava
+Contenido del test:
+int f() {
+    int a = 3;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] La función 'f' debe devolver un valor de tipo 'int'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_31_error.lava
+Contenido del test:
+void f() {
+    return 3;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] Una función void no puede devolver valor
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_32_error.lava
+Contenido del test:
+int a = square(3);
+int square(int x) {
+    return x * x;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] La función 'square' no existe o aún no ha sido declarada
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_33_error.lava
+Contenido del test:
+int foo(int x) {
+    return x;
+}
+int foo(int x) {
+    return x + 1;
+}
+
+============================================================
+Generating LALR tables
+[ERROR] Función 'foo' ya declarada con la misma firma
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_34_error.lava
+Contenido del test:
+int foo(int x) {
+    return x;
+}
+float foo(float x) {
+    return x;
+}
+float a = foo('A');
+
+============================================================
+Generating LALR tables
+[ERROR] Llamada ambigua a la función 'foo'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_35_error.lava
+Contenido del test:
+int foo(int x) {
+    return x;
+}
+boolean b = foo(true);
+
+============================================================
+Generating LALR tables
+[ERROR] No existe una sobrecarga compatible para 'foo'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_36_error.lava
+Contenido del test:
+UnknownType x;
+
+============================================================
+Generating LALR tables
+[ERROR] Tipo 'UnknownType' no declarado
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_37_error.lava
+Contenido del test:
+record Point(int x, int y);
+Point p;
+p.z = 3;
+
+============================================================
+Generating LALR tables
+[ERROR] El record 'Point' no tiene el campo 'z'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_38_error.lava
+Contenido del test:
+record Point(int x, int x);
+
+============================================================
+Generating LALR tables
+[ERROR] Campo 'x' duplicado en record 'Point'
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_39_error.lava
+Contenido del test:
+record Point(int x, int y);
+Point p = new Point(1);
+
+============================================================
+Generating LALR tables
+[ERROR] Número incorrecto de argumentos para new Point
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_40_error.lava
+Contenido del test:
+int a = 3;
+a.x = 10;
+
+============================================================
+Generating LALR tables
+[ERROR] El tipo 'int' no tiene campos
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_41_error.lava
+Contenido del test:
+int f(int x) {
+    return f(x);
+}
+============================================================
+Generating LALR tables
+[ERROR] La función 'f' no existe o aún no ha sido declarada
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_42_error.lava
+Contenido del test:
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+============================================================
+Generating LALR tables
+[ERROR] La función 'factorial' no existe o aún no ha sido declarada
+
+Exit code: 1
+
+============================================================
+Ejecutando: tests_p3\test_43_ok.lava
+Contenido del test:
+int doble(int x) {
+    return x + x;
+}
+
+int a = doble(3);
+============================================================
+Generating LALR tables
+
+--- Contenido de: tests_p3\test_43_ok.functions ---
+doble:[x:int],int
+
+--- Contenido de: tests_p3\test_43_ok.quartets ---
+
+
+--- Contenido de: tests_p3\test_43_ok.records ---
+
+
+--- Contenido de: tests_p3\test_43_ok.symbols ---
+a:int
+
+Exit code: 0

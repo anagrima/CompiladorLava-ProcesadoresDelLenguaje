@@ -1,0 +1,3 @@
+record Point(int x, int y);
+Point p;
+p.z = 3;

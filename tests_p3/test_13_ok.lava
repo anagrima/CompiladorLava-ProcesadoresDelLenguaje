@@ -1,0 +1,5 @@
+void debugValue(int x) {
+    print(x);
+}
+int a = 3;
+debugValue(a);

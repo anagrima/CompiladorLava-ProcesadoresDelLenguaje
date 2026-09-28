@@ -1,0 +1,4 @@
+int code(int x) {
+    return x;
+}
+int a = code('A');

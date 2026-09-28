@@ -1,0 +1,4 @@
+int a = 7;
+float b;
+b = a;
+b = b + 0.5;

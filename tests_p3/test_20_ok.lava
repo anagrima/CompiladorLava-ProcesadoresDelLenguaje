@@ -1,0 +1,8 @@
+int counter = 0;
+float result = 0.0;
+while (counter < 5) {
+    counter = counter + 1;
+    result = counter;
+    result = -result;
+    print(result);
+}

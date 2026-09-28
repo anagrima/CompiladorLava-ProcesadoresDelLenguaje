@@ -1,0 +1,5 @@
+boolean a = true && false;
+boolean b = !false;
+boolean c = 5 < 8;
+boolean d = 'a' == 'a';
+boolean e = 10 >= 3 || false;

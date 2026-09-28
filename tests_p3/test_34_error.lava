@@ -1,0 +1,7 @@
+int foo(int x) {
+    return x;
+}
+float foo(float x) {
+    return x;
+}
+float a = foo('A');

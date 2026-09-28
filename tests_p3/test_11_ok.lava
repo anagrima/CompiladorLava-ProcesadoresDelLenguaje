@@ -1,0 +1,6 @@
+record Price(float euro, float dollar);
+record Product(Price price, boolean active);
+Product p;
+p.price.euro = 10;
+p.price.dollar = 11;
+p.active = true;
