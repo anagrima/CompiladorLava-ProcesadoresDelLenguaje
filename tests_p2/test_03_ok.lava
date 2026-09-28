@@ -1,0 +1,3 @@
+int a, b, c;
+boolean x, y;
+char letter;
