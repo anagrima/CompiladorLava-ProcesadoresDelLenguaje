@@ -1,0 +1,3 @@
+void mostrar(int x) {
+    print(x);
+}

@@ -1,0 +1,6 @@
+int suma(int x, int y) {
+    return x + y;
+}
+
+int a;
+a = suma(2, 3);

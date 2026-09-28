@@ -1,0 +1,4 @@
+record Point(int x, int y);
+record Line(Point a, Point b);
+
+Line l = new Line(new Point(0, 0), new Point(3, 4));

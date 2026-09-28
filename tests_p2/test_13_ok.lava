@@ -1,0 +1,4 @@
+record Point(int x, int y);
+Point p = new Point(1, 2);
+int a = p.x;
+int b = p.y;
