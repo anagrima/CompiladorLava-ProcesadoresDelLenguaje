@@ -1,0 +1,5 @@
+record Vector(float x, float y);
+record Planet(Vector position, Vector velocity, float mass, boolean active);
+
+Planet earth = new Planet(new Vector(0, 0), new Vector(1, 2), 5, true);
+float vx = earth.velocity.x;
